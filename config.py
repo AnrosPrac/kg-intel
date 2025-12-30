@@ -9,3 +9,25 @@ CONFIDENCE_RULES = {
     "MEDIUM": "result_without_id",
     "LOW": "no_result"
 }
+
+ENTITY_GRAPH = {
+    "parent": {
+        "name": "Sidhi",
+        "aliases": [
+            "Sidhi Ecosystem",
+            "sidhi.xyz"
+        ]
+    },
+    "founder": {
+        "name": "Arshad Azeez M",
+        "aliases": [
+            "Arshad Azeez"
+        ]
+    },
+    "children": [
+        {
+            "name": "Lumetrix",
+            "aliases": []
+        }
+    ]
+}
