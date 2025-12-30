@@ -41,7 +41,8 @@ def send_telegram(text):
             "chat_id": chat,
             "text": text[i:i+MAX]
         })
-
 if __name__ == "__main__":
+    send_telegram("✅ KG Intelligence Reporter is ONLINE and executed successfully.")
     report = orchestrate()
-    send_telegram("🗞️ DAILY KG INTELLIGENCE REPORT\n\n" + report)
+    send_telegram(report)
+
