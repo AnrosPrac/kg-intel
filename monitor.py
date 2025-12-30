@@ -14,11 +14,13 @@ KG_URL = "https://kgsearch.googleapis.com/v1/entities:search"
 # -----------------------------
 def fetch_entity(query):
     params = {
-        "query": query,
-        "limit": 1,
-        "indent": True,
-        "key": API_KEY
-    }
+    "query": query,
+    "limit": 3,
+    "types": "Organization",
+    "indent": True,
+    "key": API_KEY
+}
+
     resp = requests.get(KG_URL, params=params, timeout=10)
     data = resp.json()
     items = data.get("itemListElement", [])
