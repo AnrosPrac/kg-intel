@@ -46,7 +46,7 @@ def send_telegram(text):
         print("Telegram response:", resp.status_code, resp.text)
 
 if __name__ == "__main__":
-    send_telegram("✅ KG Intelligence Reporter is ONLINE and executed successfully.")
+    send_telegram("KG Intelligence Reporter is ONLINE and executed successfully.")
     report = orchestrate()
     send_telegram(report)
 
