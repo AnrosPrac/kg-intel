@@ -132,21 +132,29 @@ def orchestrate():
 # Telegram Sender (SAFE, CHUNKED)
 # -------------------------------------------------
 def send_telegram(text):
-    token = os.environ["TELEGRAM_BOT_TOKEN"]
-    chat = os.environ["TELEGRAM_CHAT_ID"]
-    url = f"https://api.telegram.org/bot{token}/sendMessage"
+    token = os.environ.get("TELEGRAM_BOT_TOKEN")
+    chat = os.environ.get("TELEGRAM_CHAT_ID")
 
+    if not token or not chat:
+        print("Telegram not configured. Skipping send.")
+        return
+
+    url = f"https://api.telegram.org/bot{token}/sendMessage"
     MAX = 3500
+
     for i in range(0, len(text), MAX):
-        resp = requests.post(
-            url,
-            json={
-                "chat_id": chat,
-                "text": text[i:i + MAX]
-            },
-            timeout=10
-        )
-        print("Telegram:", resp.status_code)
+        try:
+            resp = requests.post(
+                url,
+                json={
+                    "chat_id": chat,
+                    "text": text[i:i + MAX]
+                },
+                timeout=10
+            )
+            print("Telegram:", resp.status_code)
+        except requests.exceptions.RequestException as e:
+            print("Telegram send failed (non-fatal):", str(e))
 
 
 # -------------------------------------------------
