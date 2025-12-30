@@ -31,16 +31,20 @@ def orchestrate():
     return "\n".join(blocks)
 
 def send_telegram(text):
+    import requests, os
+
     token = os.environ["TELEGRAM_BOT_TOKEN"]
     chat = os.environ["TELEGRAM_CHAT_ID"]
     url = f"https://api.telegram.org/bot{token}/sendMessage"
 
-    MAX = 4000
+    MAX = 3500
     for i in range(0, len(text), MAX):
-        requests.post(url, json={
+        resp = requests.post(url, json={
             "chat_id": chat,
             "text": text[i:i+MAX]
         })
+        print("Telegram response:", resp.status_code, resp.text)
+
 if __name__ == "__main__":
     send_telegram("✅ KG Intelligence Reporter is ONLINE and executed successfully.")
     report = orchestrate()
