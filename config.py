@@ -1,6 +1,6 @@
 QUERIES = [
     "Arshad Azeez M",
-    "Sidhi Labs",
+    "SidhiLynx",
     "Lumetrix sidhi",
     "Engdraft sidhi"
 ]
