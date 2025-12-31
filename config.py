@@ -1,7 +1,8 @@
 QUERIES = [
     "Arshad Azeez M",
-    "Sidhi",
-    "Sidhi Ecosystem"
+    "Sidhi Labs",
+    "Lumetrix sidhi",
+    "Engdraft sidhi"
 ]
 
 CONFIDENCE_RULES = {
